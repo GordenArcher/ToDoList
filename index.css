@@ -1,0 +1,443 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    background: rgb(2, 2, 77);
+    color: #fff;
+}
+
+.__root{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+._root_container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.header{
+    width: 100%;
+    height: 15vh;
+    color: #000;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.header nav{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+}
+
+.header nav .logo{
+    position: relative;
+    width: 200px;
+    height: 80%;
+    background-color: #cccccc40;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.header nav .logo a{
+    color: #000;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.header nav .timer{
+    width: 300px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family:  sans-serif;
+}
+
+.header nav .timer .time{
+    position: relative;
+    font-size: 2.3rem;
+    font-weight: 500;
+}
+
+.main_body{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin-top: 50px;
+}
+
+.main_body main{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 20px;
+}
+
+.to_do_container{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+    padding: 20px 0;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.to_do_container .head{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 10px 20px;
+}
+
+.to_do_container .head header{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.to_do_container .head header .task_search{
+    width: 400px;
+    height: 100%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.to_do_container .head header .task_search input{
+    width: 100%;
+    height: 50px;
+    border: 1px solid blue;
+    border-radius: 5px;
+    outline: none;
+    padding: 6px 14px;
+    background: transparent;
+    color: #fff;
+    font-size: 1.2rem;
+    transition: all .3s ease;
+}
+
+.to_do_container .head header .task_search input:focus{
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #000;
+}
+
+.to_do_container .head header .task_search i{
+    font-size: 1.8rem;
+}
+
+.to_do_container .head header .add_task_btn{
+    width: 140px;
+    height: 50px;
+    position: relative;
+}
+
+.to_do_container .head header .add_task_btn button{
+    width: 100%;
+    height: 100%;
+    border: 1px solid blue;
+    border-radius: 6px;
+    background-color: blue;
+    font-size: 1.3rem;
+    color: #fff;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.to_do_container .head header .add_right .add_task_btn button:hover{
+    background-color: rgba(0, 0, 255, 0.726);
+}
+
+.to_do_container .head header .add_right .time_chose{
+    width: 40%;
+    height: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.to_do_container .head header .add_right .time_chose input{
+    width: 100%;
+    height: 60%;
+    border: 1px solid blue;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+.table_data_show{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 20px;
+}
+
+.table_data_show table{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-collapse: collapse;
+    /* border: 1px solid red; */
+}
+
+.tab_flex{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.table_data_show table .tasks_headers{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background: #fff;
+    color: #000;
+}
+
+.list_added{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.status_toggle{
+    /* margin: auto; */
+    width: 70px;
+    height: 30px;
+    border: 1px solid hsl(240, 100%, 50%);
+    border-radius: 50px;
+    position: relative;
+    display: block;
+    transition: all .4s ease;
+}
+
+.status_toggle::before{
+    content: '';
+    width: 25px;
+    height: 25px;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+    left: 1%;
+    top: 5%;
+    transition: all .4s ease;
+} 
+
+#status_check:checked ~ .status_toggle::before{
+    left: 60%;
+    top: 5%;
+    background-color: #fff;
+}
+
+#status_check:checked ~ .status_toggle{
+    background-color: blue;
+}
+
+.add_task_pop{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    z-index: 999999;
+    transform: translateY(-100%);
+    transition: all .5s ease;
+}
+
+.add_task_pop_active{
+    transform: translateY(0%);
+}
+
+.add_task_pop .background_fade{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #00000080;
+}
+
+.close_pop{
+    position: absolute;
+    right: 3%;
+    top: 6%;
+}
+
+.close_pop .close{
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+}
+
+.close_pop .close i{
+    position: relative;
+    font-size: 2rem;
+    color: #fff;
+}
+
+.add_task_pop .main_pop{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.add_task_pop .main_pop .header{
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.add_task_pop .main_pop .header h2{
+    font-size: 3rem;
+    color: #fff;
+}
+
+.add_task_pop .main_pop .add_form{
+    width: 70%;
+    background: #fff;
+    border-radius: 6px;
+}
+
+.add_task_pop .main_pop .add_form form{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 20px;
+    padding: 20px;
+}
+
+.add_task_pop .main_pop .add_form form .inputs{
+    width: 100%;
+    padding: 10px;
+}
+
+.add_task_pop .main_pop .add_form form .inputs .task_title, .adding_task{
+    width: 100%;
+    position: relative;
+    margin: 13px 0;
+}
+
+.add_task_pop .main_pop .add_form form .inputs .task_title input, .task_description input, .adding_task input{
+    width: 100%;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    padding: 10px;
+    font-size: 1.5rem;
+    transition: all .3s ease;
+    position: relative;
+}
+
+.task_description input{
+    margin-top: 50px;
+}
+
+.add_task_pop .main_pop .add_form form .inputs .task_title input:focus, .task_description input:focus{
+    border: 1px solid blue;
+}
+
+.add_task_pop .main_pop .add_form form .inputs .task_title label{
+    position: absolute;
+    top: -30px;
+    left: 0;
+    color: #000;
+    font-size: 1.2rem;
+}
+
+.task_description label{
+    color: #000;
+    position: relative;
+    top: -80px;
+    font-size: 1.2rem;
+}
+
+.time_chose{
+    position: relative;
+    margin-top: -5px;
+    padding:0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.time_chose h1{
+    font-size: 1rem;
+}
+
+.time_chose input{
+    height: 50px;
+    font-size: 1.3rem;
+}
+
+.adding_task input{
+    margin-top: 40px;
+    cursor: pointer;
+}
+
+.adding_task input:hover{
+    background: blue;
+    color: #fff;
+    transition: all .5s ease;
+}
+
+.edit, .delete{
+    width: 100%;
+    position: relative;
+    padding: 2px;
+}
+
+.edit button, .delete button{
+    width: 100%;
+    height: 30px;
+    border: 1px solid rgba(255, 217, 0, 0.839);
+    background-color: rgba(255, 217, 0, 0.839);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.delete button{
+    background-color: red;
+    border: 1px solid red;
+}
+
+.edit button i, .delete button i {
+    font-size: 1.3rem;
+}
